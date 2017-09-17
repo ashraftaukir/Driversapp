@@ -9,11 +9,12 @@ import android.widget.FrameLayout;
 public class MainActivity extends AppCompatActivity {
 
     FrameLayout fragmentcontainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentcontainer=(FrameLayout)findViewById(R.id.fragment_container);
+        fragmentcontainer = (FrameLayout) findViewById(R.id.fragment_container);
         fragmenttransition();
 
     }
@@ -26,11 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(getFragmentManager().getBackStackEntryCount() == 0) {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
             super.onBackPressed();
-          //  finish();
-        }
-        else {
+            //  finish();
+        } else {
             getFragmentManager().popBackStack();
         }
     }
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Fragment fragment = (LoginFragment)getFragmentManager().findFragmentById(fragmentcontainer.getId());
+        Fragment fragment = (LoginFragment) getFragmentManager().findFragmentById(fragmentcontainer.getId());
         fragment.onActivityResult(requestCode, resultCode, data);
 
 

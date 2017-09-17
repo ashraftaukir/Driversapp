@@ -15,7 +15,7 @@ import com.facebook.login.LoginManager;
 import java.util.Arrays;
 
 
-public class ForgotpasswordFragment extends Fragment implements View.OnClickListener{
+public class ForgotpasswordFragment extends Fragment implements View.OnClickListener {
 
     View view;
     EditText emailorphonenumber;
@@ -32,8 +32,8 @@ public class ForgotpasswordFragment extends Fragment implements View.OnClickList
 
     private void initialization() {
 
-        emailorphonenumber=(EditText)view.findViewById(R.id.emailorphoneet);
-        sendbutton=(Button) view.findViewById(R.id.sendbtn);
+        emailorphonenumber = (EditText) view.findViewById(R.id.emailorphoneet);
+        sendbutton = (Button) view.findViewById(R.id.sendbtn);
 
     }
 
@@ -53,18 +53,18 @@ public class ForgotpasswordFragment extends Fragment implements View.OnClickList
 
     private void gotoValidationProcess() {
 
-        String emailorphone=emailorphonenumber.getText().toString();
-      if(isValidEmail(emailorphone)||(emailorphone.length()==11)){
+        String emailorphone = emailorphonenumber.getText().toString();
+        if (isValidEmail(emailorphone) || (emailorphone.length() == 11)) {
 
-          Toast.makeText(getContext(), "Sending u message", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Sending u message", Toast.LENGTH_SHORT).show();
 
-      }else{
-          Toast.makeText(getContext(), "Check your email or phonenumber", Toast.LENGTH_SHORT).show();
-      }
+        } else {
+            Toast.makeText(getContext(), "Check your email or phonenumber", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
-    public  static boolean isValidEmail(CharSequence target) {
+    public static boolean isValidEmail(CharSequence target) {
         return target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
