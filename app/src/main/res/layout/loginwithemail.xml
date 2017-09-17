@@ -20,7 +20,7 @@
         android:inputType="textEmailAddress"
         android:padding="@dimen/margin10dp"
         android:hint="@string/emailhit"
-        android:textSize="@dimen/registertextsize" />
+        android:textSize="@dimen/forgotpasswordtextsize" />
 
     <EditText
         android:id="@+id/passwordet"
@@ -35,7 +35,7 @@
         android:inputType="textPassword"
         android:padding="@dimen/margin10dp"
         android:hint="@string/passwordhint"
-        android:textSize="@dimen/registertextsize" />
+        android:textSize="@dimen/forgotpasswordtextsize" />
 
     <Button
         android:id="@+id/apploginbtn"
@@ -48,7 +48,7 @@
         android:background="@drawable/customloginbutton"
         android:text="@string/login"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/registertextsize" />
+        android:textSize="@dimen/forgotpasswordtextsize" />
 
     <TextView
         android:id="@+id/forgotpassword"
