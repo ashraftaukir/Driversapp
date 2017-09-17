@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Driversapp</string>
+    <string name="hello">hello araba app!!!!</string>
+    <string name="loginpage">loginpage</string>
+    <string name="fbtext">login with facebook</string>
+    <string name="emailtext">login with email</string>
+    <string name="registrationmessage">Register here</string>
+    <string name="login">LOGIN</string>
+    <string name="forgotpassword">FORGOT PASSWORD</string>
+    <string name="emailhit">email or phone</string>
+    <string name="fullnamehint">full name</string>
+    <string name="passwordhint">password</string>
+    <string name="email">email</string>
+    <string name="phonehint">phone</string>
+    <string name="signup">SIGN UP</string>
+    <string name="send">Send</string>
+    <string name="facebook_app_id">1336474566461130</string>
+    <string name="google_map_api_key">AIzaSyDv0IZ4oh8MDVd62n-_KtDxBnEXeV4k2xg</string>
+</resources>
