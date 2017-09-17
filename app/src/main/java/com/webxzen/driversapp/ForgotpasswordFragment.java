@@ -3,6 +3,8 @@ package com.webxzen.driversapp;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,40 +21,38 @@ public class ForgotpasswordFragment extends Fragment implements View.OnClickList
 
     View view;
     EditText emailorphonenumber;
-    Button sendbutton;
+    Button sendbtn;
+    TextInputLayout textInputLayoutemail;
 
+    Button test;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.forgotpassword, container, false);
         initialization();
+        initListeners();
+
         return view;
+
+    }
+
+    private void initListeners() {
+
+        sendbtn.setOnClickListener(this);
 
     }
 
     private void initialization() {
 
-        emailorphonenumber = (EditText) view.findViewById(R.id.emailorphoneet);
-        sendbutton = (Button) view.findViewById(R.id.sendbtn);
-
+        emailorphonenumber = (EditText) view.findViewById(R.id.emailorphoneinfo);
+        sendbtn = (Button) view.findViewById(R.id.sendbutton);
+        textInputLayoutemail = (TextInputLayout) view.findViewById(R.id.emailorphoneet);
     }
 
-    @Override
-    public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.sendbtn:
-                gotoValidationProcess();
-                break;
-
-            default:
-                break;
-        }
-
-    }
 
     private void gotoValidationProcess() {
-
+        Log.d("gotoValidationProcess", "gotoValidationProcess");
         String emailorphone = emailorphonenumber.getText().toString();
         if (isValidEmail(emailorphone) || (emailorphone.length() == 11)) {
 
@@ -68,4 +68,18 @@ public class ForgotpasswordFragment extends Fragment implements View.OnClickList
         return target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.sendbutton:
+                gotoValidationProcess();
+                break;
+
+            default:
+                break;
+
+
+        }
+    }
 }
