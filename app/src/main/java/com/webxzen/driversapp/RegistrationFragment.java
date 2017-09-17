@@ -58,19 +58,32 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
     private void gotoValidationProcess() {
 
-        String driverfullname=fullname.getText().toString();
-        String driveremailaddress=email.getText().toString();
-        int driverphonenumber=phonenumber.getText().toString().length();
-        int driverpassword=password.getText().toString().length();
+        String driverfullname = fullname.getText().toString();
+        String driveremailaddress = email.getText().toString();
+        int driverphonenumber = phonenumber.getText().toString().length();
+        int driverpassword = password.getText().toString().length();
 
-        if((driverfullname.length()>2)&&isValidEmail(driveremailaddress)
-                &&(driverphonenumber==11)&&(driverpassword>3)){
-            gotologinPage();
+        if (driverfullname.length() > 2) {
+            if (isValidEmail(driveremailaddress)) {
+                if (driverphonenumber == 11) {
+                    if (driverpassword > 3) {
+                        gotologinPage();
 
-        }
-        else{
+                    } else {
+                        password.setError("At least 4 character");
+                    }
 
-            Toast.makeText(getContext(), "Please correct your information", Toast.LENGTH_SHORT).show();
+                } else {
+                    phonenumber.setError("Use 11 character");
+
+                }
+
+            } else {
+                email.setError("Invalid email address");
+            }
+        } else {
+
+            fullname.setError("atleast 3 character");
         }
 
 
@@ -81,7 +94,8 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
 
     }
-    public  static boolean isValidEmail(CharSequence target) {
+
+    public static boolean isValidEmail(CharSequence target) {
         return target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 
