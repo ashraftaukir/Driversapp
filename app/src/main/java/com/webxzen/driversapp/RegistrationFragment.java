@@ -1,6 +1,7 @@
 package com.webxzen.driversapp;
 
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -71,27 +72,32 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
         int driverphonenumber = phonenumber.getText().toString().length();
         int driverpassword = password.getText().toString().length();
 
-        if (driverfullname.length() > 2) {
+        if (driverfullname.length() > 0) {
             if (isValidEmail(driveremailaddress)) {
                 if (driverphonenumber == 11) {
                     if (driverpassword > 3) {
                         gotologinPage();
-
                     } else {
-                        password.setError("At least 4 character");
+
+                        Toast.makeText(getContext(), "At least 4 character", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
-                    phonenumber.setError("Use 11 character");
+
+                    Toast.makeText(getContext(), "Use 11 character", Toast.LENGTH_SHORT).show();
 
                 }
 
             } else {
-                email.setError("Invalid email address");
+
+
+                Toast.makeText(getContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
             }
         } else {
+            textInputLayoutfullname.setError("atleast 3 character");
 
-            fullname.setError("atleast 3 character");
+            //Toast.makeText(getContext(), "atleast 3 character", Toast.LENGTH_SHORT).show();
+
         }
 
 
