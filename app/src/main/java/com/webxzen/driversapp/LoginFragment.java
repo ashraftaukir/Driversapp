@@ -108,12 +108,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
     private void gotoregisterPage() {
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new RegistrationFragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new RegistrationFragment()).addToBackStack(null).commit();
 
     }
 
     private void gotologinwithEmailPage() {
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginwithemailFragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginwithemailFragment()).addToBackStack(null).commit();
 
     }
 

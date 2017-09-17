@@ -23,10 +23,12 @@ public class MainActivity extends AppCompatActivity {
         getFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginFragment()).addToBackStack(null).commit();
 
     }
+
     @Override
     public void onBackPressed() {
         if(getFragmentManager().getBackStackEntryCount() == 0) {
             super.onBackPressed();
+          //  finish();
         }
         else {
             getFragmentManager().popBackStack();
