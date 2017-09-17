@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <EditText
+            android:id="@+id/fullnameet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin"
@@ -18,12 +19,12 @@
             android:padding="@dimen/margin10dp"
             android:hint="@string/fullnamehint"
             android:textSize="@dimen/registertextsize"
-            android:layout_above="@+id/emailet"
+            android:layout_above="@+id/emailaddresset"
             android:layout_marginBottom="@dimen/forgotpasswordtextsize"
 
             />
         <EditText
-            android:id="@+id/emailet"
+            android:id="@+id/emailaddresset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -37,10 +38,10 @@
 
 
         <EditText
-            android:id="@+id/phoneet"
+            android:id="@+id/phoneinfoet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/emailet"
+            android:layout_below="@+id/emailaddresset"
             android:layout_marginTop="@dimen/forgotpasswordtextsize"
             android:hint="@string/phonehint"
             android:inputType="phone"
@@ -56,7 +57,7 @@
             android:id="@+id/passwordet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/phoneet"
+            android:layout_below="@+id/phoneinfoet"
             android:layout_marginTop="@dimen/forgotpasswordtextsize"
             android:hint="@string/passwordhint"
             android:inputType="textPassword"

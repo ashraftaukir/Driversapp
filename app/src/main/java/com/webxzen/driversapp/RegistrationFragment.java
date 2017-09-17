@@ -7,12 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class RegistrationFragment extends Fragment implements View.OnClickListener {
 
     View view;
     Button signupbtn;
+    EditText fullname, email, phonenumber, password;
 
 
     @Nullable
@@ -26,12 +29,16 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
     }
 
     private void initiaLizeListener() {
-    signupbtn.setOnClickListener(this);
+        signupbtn.setOnClickListener(this);
 
     }
 
     private void initialization() {
-    signupbtn=(Button)view.findViewById(R.id.signup);
+        signupbtn = (Button) view.findViewById(R.id.signup);
+        fullname = (EditText) view.findViewById(R.id.fullnameet);
+        email = (EditText) view.findViewById(R.id.emailaddresset);
+        phonenumber = (EditText) view.findViewById(R.id.phoneinfoet);
+        password = (EditText) view.findViewById(R.id.passwordet);
 
     }
 
@@ -40,7 +47,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
         switch (v.getId()) {
             case R.id.signup:
-                gotologinPage();
+                gotoValidationProcess();
                 break;
 
             default:
@@ -49,9 +56,33 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
     }
 
+    private void gotoValidationProcess() {
+
+        String driverfullname=fullname.getText().toString();
+        String driveremailaddress=email.getText().toString();
+        int driverphonenumber=phonenumber.getText().toString().length();
+        int driverpassword=password.getText().toString().length();
+
+        if((driverfullname.length()>2)&&isValidEmail(driveremailaddress)
+                &&(driverphonenumber==11)&&(driverpassword>3)){
+            gotologinPage();
+
+        }
+        else{
+
+            Toast.makeText(getContext(), "Please correct your information", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
     private void gotologinPage() {
         getFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginwithemailFragment()).addToBackStack(null).commit();
 
 
     }
+    public  static boolean isValidEmail(CharSequence target) {
+        return target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+    }
+
 }
