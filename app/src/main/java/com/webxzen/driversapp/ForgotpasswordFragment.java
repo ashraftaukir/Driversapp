@@ -52,7 +52,6 @@ public class ForgotpasswordFragment extends Fragment implements View.OnClickList
 
 
     private void gotoValidationProcess() {
-        Log.d("gotoValidationProcess", "gotoValidationProcess");
         String emailorphone = emailorphonenumber.getText().toString();
         if (isValidEmail(emailorphone) || (emailorphone.length() == 11)) {
 

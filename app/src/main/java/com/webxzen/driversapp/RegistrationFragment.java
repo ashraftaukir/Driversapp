@@ -3,6 +3,7 @@ package com.webxzen.driversapp;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,9 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
     View view;
     Button signupbtn;
     EditText fullname, email, phonenumber, password;
+    TextInputLayout textInputLayoutfullname,textInputLayoutemailaddress,
+    textInputLayoutphonenumber,textInputLayoutpassword;
+            ;
 
 
     @Nullable
@@ -35,10 +39,14 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
     private void initialization() {
         signupbtn = (Button) view.findViewById(R.id.signup);
-        fullname = (EditText) view.findViewById(R.id.fullnameet);
-        email = (EditText) view.findViewById(R.id.emailaddresset);
-        phonenumber = (EditText) view.findViewById(R.id.phoneinfoet);
-        password = (EditText) view.findViewById(R.id.passwordet);
+        textInputLayoutfullname = (TextInputLayout) view.findViewById(R.id.fullnameet);
+        textInputLayoutemailaddress = (TextInputLayout) view.findViewById(R.id.emailaddresset);
+        textInputLayoutphonenumber = (TextInputLayout) view.findViewById(R.id.phoneinfoet);
+        textInputLayoutpassword = (TextInputLayout) view.findViewById(R.id.passwordet);
+        fullname=(EditText)view.findViewById(R.id.fullnameedittext);
+        email=(EditText)view.findViewById(R.id.emailaddressedittext);
+        phonenumber=(EditText)view.findViewById(R.id.phoneinfoedittext);
+        password=(EditText)view.findViewById(R.id.passwordedittext);
 
     }
 
