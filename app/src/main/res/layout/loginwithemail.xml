@@ -5,68 +5,63 @@
     android:background="@color/colorBlack"
     android:orientation="vertical">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <EditText
-        android:id="@+id/emailet"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="@dimen/margin"
-        android:layout_marginRight="@dimen/margin"
-        android:background="@drawable/customedittext"
-        android:inputType="textEmailAddress"
-        android:padding="@dimen/margin10dp"
-        android:hint="@string/emailhit"
-        android:textSize="@dimen/forgotpasswordtextsize" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/passwordet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/emailet"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="@dimen/margin"
-        android:layout_marginRight="@dimen/margin"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/customedittext"
-        android:inputType="textPassword"
-        android:padding="@dimen/margin10dp"
-        android:hint="@string/passwordhint"
-        android:textSize="@dimen/forgotpasswordtextsize" />
+        <EditText
+            android:id="@+id/emailet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:background="@drawable/customedittext"
+            android:hint="@string/emailhit"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/margin10dp"
+            android:textSize="@dimen/forgotpasswordtextsize" />
 
-    <Button
-        android:id="@+id/apploginbtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordet"
-        android:layout_marginLeft="@dimen/margin"
-        android:layout_marginRight="@dimen/margin"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/customloginbutton"
-        android:text="@string/login"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/forgotpasswordtextsize" />
+        <EditText
+            android:id="@+id/passwordet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailet"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/customedittext"
+            android:hint="@string/passwordhint"
+            android:inputType="textPassword"
+            android:padding="@dimen/margin10dp"
+            android:textSize="@dimen/forgotpasswordtextsize" />
 
-    <TextView
-        android:id="@+id/forgotpassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/apploginbtn"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/margin"
-        android:text="@string/forgotpassword"
-        android:textColor="@color/colorfiroza"
-        android:textSize="@dimen/forgotpasswordtextsize"
+        <Button
+            android:id="@+id/apploginbtn"
+            style="@style/App_ButtonStyle"
+            android:layout_below="@+id/passwordet"
+            android:layout_marginTop="20dp"
+            android:text="@string/login"
 
+            />
 
-        />
+        <TextView
+            android:id="@+id/forgotpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/apploginbtn"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin"
+            android:text="@string/forgotpassword"
+            android:textColor="@color/colorfiroza"
+            android:textSize="@dimen/forgotpasswordtextsize"
 
 
-</RelativeLayout>
+            />
 
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
