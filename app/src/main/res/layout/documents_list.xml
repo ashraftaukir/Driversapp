@@ -25,14 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="6"
-            android:background="@mipmap/ic_launcher" />
+            android:visibility="gone"
+            android:background="@drawable/greenmarkimage" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/apploginbtn"
-        style="@style/App_ButtonStyle"
-        android:layout_marginBottom="20dp"
-        android:text="@string/continuebtn" />
+
 
 </LinearLayout>

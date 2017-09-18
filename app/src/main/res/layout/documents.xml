@@ -31,6 +31,17 @@
 
         </android.support.v7.widget.RecyclerView>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/colorash" />
+
+        <Button
+            android:id="@+id/apploginbtn"
+            style="@style/App_ButtonStyle"
+            android:layout_marginBottom="20dp"
+            android:text="@string/continuebtn" />
 
     </RelativeLayout>
 
