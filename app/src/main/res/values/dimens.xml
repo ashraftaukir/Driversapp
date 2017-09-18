@@ -8,4 +8,6 @@
     <dimen name="margin">20dp</dimen>
     <dimen name="margin10dp">10dp</dimen>
     <dimen name="margin15dp">15dp</dimen>
+    <dimen name="margin20sp">20sp</dimen>
+    <dimen name="margin15sp">15sp</dimen>
 </resources>
