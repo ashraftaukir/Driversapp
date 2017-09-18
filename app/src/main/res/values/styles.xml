@@ -44,7 +44,10 @@
         <item name="colorControlNormal">@color/colorWhite</item>
         <item name="colorControlActivated">@color/colorWhite</item>
     </style>
-
+    <style name="Active" parent="TextAppearance.AppCompat">
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <item name="android:textColor">@color/colorRed</item>
+    </style>
 </resources>
 
 

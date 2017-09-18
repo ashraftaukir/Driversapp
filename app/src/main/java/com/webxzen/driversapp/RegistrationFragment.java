@@ -1,6 +1,7 @@
 package com.webxzen.driversapp;
 
 import android.app.Fragment;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,9 +19,9 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
     View view;
     Button signupbtn;
     EditText fullname, email, phonenumber, password;
-    TextInputLayout textInputLayoutfullname,textInputLayoutemailaddress,
-    textInputLayoutphonenumber,textInputLayoutpassword;
-            ;
+    TextInputLayout textInputLayoutfullname, textInputLayoutemailaddress,
+            textInputLayoutphonenumber, textInputLayoutpassword;
+    ;
 
 
     @Nullable
@@ -44,10 +45,10 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
         textInputLayoutemailaddress = (TextInputLayout) view.findViewById(R.id.emailaddresset);
         textInputLayoutphonenumber = (TextInputLayout) view.findViewById(R.id.phoneinfoet);
         textInputLayoutpassword = (TextInputLayout) view.findViewById(R.id.passwordet);
-        fullname=(EditText)view.findViewById(R.id.fullnameedittext);
-        email=(EditText)view.findViewById(R.id.emailaddressedittext);
-        phonenumber=(EditText)view.findViewById(R.id.phoneinfoedittext);
-        password=(EditText)view.findViewById(R.id.passwordedittext);
+        fullname = (EditText) view.findViewById(R.id.fullnameedittext);
+        email = (EditText) view.findViewById(R.id.emailaddressedittext);
+        phonenumber = (EditText) view.findViewById(R.id.phoneinfoedittext);
+        password = (EditText) view.findViewById(R.id.passwordedittext);
 
     }
 
@@ -67,46 +68,75 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
     private void gotoValidationProcess() {
 
-        String driverfullname = fullname.getText().toString();
-        String driveremailaddress = email.getText().toString();
-        int driverphonenumber = phonenumber.getText().toString().length();
-        int driverpassword = password.getText().toString().length();
-
-        if (driverfullname.length() > 0) {
-            if (isValidEmail(driveremailaddress)) {
-                if (driverphonenumber == 11) {
-                    if (driverpassword > 3) {
-                        gotologinPage();
-                    } else {
-
-                        Toast.makeText(getContext(), "At least 4 character", Toast.LENGTH_SHORT).show();
-                    }
-
-                } else {
-
-                    Toast.makeText(getContext(), "Use 11 character", Toast.LENGTH_SHORT).show();
-
-                }
-
-            } else {
-
-
-                Toast.makeText(getContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            textInputLayoutfullname.setError("atleast 3 character");
-
-            //Toast.makeText(getContext(), "atleast 3 character", Toast.LENGTH_SHORT).show();
-
+        if (!validateName()) {
+            return;
         }
 
+        if (!validateEmail()) {
+            return;
+        }
+
+        if (!validatePassword()) {
+            return;
+        }
+        if (!validatePhoneNumber()) {
+            return;
+        }
+
+        gotologinPage();
 
     }
 
+    private boolean validateName() {
+
+        boolean driverfullname = fullname.getText().toString().trim().isEmpty();
+        if (driverfullname) {
+            textInputLayoutfullname.setHintTextAppearance(R.style.Active);
+            Toast.makeText(getContext(), "Please select your full name", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validateEmail() {
+
+        String driveremailaddress = email.getText().toString();
+        if (driveremailaddress.isEmpty() || !isValidEmail(driveremailaddress)) {
+            textInputLayoutemailaddress.setHintTextAppearance(R.style.Active);
+            Toast.makeText(getContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validatePhoneNumber() {
+
+        boolean driverphonenumber = phonenumber.getText().toString().trim().isEmpty();
+        if (driverphonenumber) {
+            textInputLayoutphonenumber.setHintTextAppearance(R.style.Active);
+            Toast.makeText(getContext(), "Please select your phonenumber", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean validatePassword() {
+
+        int driverpassword = password.getText().toString().length();
+        if (driverpassword < 4) {
+            textInputLayoutpassword.setHintTextAppearance(R.style.Active);
+            Toast.makeText(getContext(), "Atleast 4 character", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
     private void gotologinPage() {
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginwithemailFragment()).addToBackStack(null).commit();
 
-
+        getFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new LoginwithemailFragment()).addToBackStack(null).commit();
     }
 
     public static boolean isValidEmail(CharSequence target) {

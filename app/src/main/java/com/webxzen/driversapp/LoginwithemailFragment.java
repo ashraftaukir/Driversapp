@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ public class LoginwithemailFragment extends Fragment implements View.OnClickList
     TextView forgotpass;
     Button applicationlogin;
     EditText emailaddress,loginpassword;
+    TextInputLayout textInputemailLayout,textInputpasswordLayout;
 
     @Nullable
     @Override
@@ -40,8 +42,10 @@ public class LoginwithemailFragment extends Fragment implements View.OnClickList
     private void initialization() {
         applicationlogin = (Button) view.findViewById(R.id.apploginbtn);
         forgotpass = (TextView) view.findViewById(R.id.forgotpassword);
-        emailaddress = (EditText) view.findViewById(R.id.emailet);
-        loginpassword = (EditText) view.findViewById(R.id.passwordet);
+        emailaddress = (EditText) view.findViewById(R.id.emailedittext);
+        loginpassword = (EditText) view.findViewById(R.id.passwordedittext);
+        textInputemailLayout = (TextInputLayout) view.findViewById(R.id.emailet);
+        textInputpasswordLayout = (TextInputLayout) view.findViewById(R.id.passwordet);
 
     }
 
@@ -79,7 +83,7 @@ public class LoginwithemailFragment extends Fragment implements View.OnClickList
 
     private void gotoforgotpasswordPage() {
 
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new ForgotpasswordFragment()).addToBackStack(null).commit();
+        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new ForgotpasswordFragment())/*.addToBackStack(null)*/.commit();
 
     }
 
