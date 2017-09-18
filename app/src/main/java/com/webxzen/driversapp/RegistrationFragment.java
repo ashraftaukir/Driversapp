@@ -1,6 +1,7 @@
 package com.webxzen.driversapp;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
     EditText fullname, email, phonenumber, password;
     TextInputLayout textInputLayoutfullname, textInputLayoutemailaddress,
             textInputLayoutphonenumber, textInputLayoutpassword;
-    ;
+
 
 
     @Nullable
@@ -83,8 +84,15 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
             return;
         }
 
-        gotologinPage();
+       // gotologinPage();
 
+        gotoHomeScreenActivity();
+    }
+
+    private void gotoHomeScreenActivity() {
+
+        Intent intent=new Intent(getActivity(),HomeScreenActivity.class);
+        startActivity(intent);
     }
 
     private boolean validateName() {
@@ -133,11 +141,11 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
         return true;
     }
 
-    private void gotologinPage() {
-
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new LoginwithemailFragment()).addToBackStack(null).commit();
-    }
+//    private void gotologinPage() {
+//
+//        getFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                new LoginwithemailFragment()).addToBackStack(null).commit();
+//    }
 
     public static boolean isValidEmail(CharSequence target) {
         return target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();

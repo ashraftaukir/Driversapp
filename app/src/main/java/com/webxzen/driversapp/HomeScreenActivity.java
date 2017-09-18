@@ -1,9 +1,15 @@
 package com.webxzen.driversapp;
 
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.FrameLayout;
 
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -14,40 +20,33 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class HomeScreenActivity extends AppCompatActivity/* implements OnMapReadyCallback, LocationListener*/ {
+public class HomeScreenActivity extends AppCompatActivity {
+
+
+    FrameLayout fragmentcontainer;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.homescreenactivity);
+        fragmentcontainer = (FrameLayout) findViewById(R.id.fragment_container);
+        fragmenttransition();
+
+    }
+
+    private void fragmenttransition() {
+
+        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new DocumentsFragment()).addToBackStack(null).commit();
 
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.item_menu, menu);
+        return true;
 
-//    @Override
-//    public void onMapReady(GoogleMap googleMap) {
-//
-//
-//        //  Toast.makeText(getApplicationContext(), "onmap", Toast.LENGTH_SHORT).show();
-//
-//        LatLng sydney = new LatLng(-33.852, 151.211);
-//        googleMap.addMarker(new MarkerOptions().position(sydney)
-//                //        .title("Marker in Sydney")
-//
-//
-//        );
-//        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-//    }
-//
-//    @Override
-//    public void onLocationChanged(Location location) {
-//
-//
-//        // Log.d("onLocationChanged", "onLocationChanged: ");
-//        //double lat = location.getLatitude();
-//        //double lng = location.getLongitude();
-//
-//    }
+    }
 }
