@@ -91,7 +91,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
         boolean driverfullname = fullname.getText().toString().trim().isEmpty();
         if (driverfullname) {
-            textInputLayoutfullname.setHintTextAppearance(R.style.Active);
+           // textInputLayoutfullname.setHintTextAppearance(R.style.Active);
             Toast.makeText(getContext(), "Please select your full name", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -103,7 +103,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
         String driveremailaddress = email.getText().toString();
         if (driveremailaddress.isEmpty() || !isValidEmail(driveremailaddress)) {
-            textInputLayoutemailaddress.setHintTextAppearance(R.style.Active);
+           // textInputLayoutemailaddress.setHintTextAppearance(R.style.Active);
             Toast.makeText(getContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -114,7 +114,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
         boolean driverphonenumber = phonenumber.getText().toString().trim().isEmpty();
         if (driverphonenumber) {
-            textInputLayoutphonenumber.setHintTextAppearance(R.style.Active);
+            //textInputLayoutphonenumber.setHintTextAppearance(R.style.Active);
             Toast.makeText(getContext(), "Please select your phonenumber", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -126,7 +126,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
         int driverpassword = password.getText().toString().length();
         if (driverpassword < 4) {
-            textInputLayoutpassword.setHintTextAppearance(R.style.Active);
+           // textInputLayoutpassword.setHintTextAppearance(R.style.Active);
             Toast.makeText(getContext(), "Atleast 4 character", Toast.LENGTH_SHORT).show();
             return false;
         }
