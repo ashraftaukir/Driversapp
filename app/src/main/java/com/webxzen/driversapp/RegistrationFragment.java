@@ -84,8 +84,6 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
             return;
         }
 
-       // gotologinPage();
-
         gotoHomeScreenActivity();
     }
 
@@ -146,6 +144,17 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 //        getFragmentManager().beginTransaction().replace(R.id.fragment_container,
 //                new LoginwithemailFragment()).addToBackStack(null).commit();
 //    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fullname.setText("");
+        email.setText("");
+        phonenumber.setText("");
+        password.setText("");
+
+    }
 
     public static boolean isValidEmail(CharSequence target) {
         return target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();

@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -49,7 +50,14 @@ public class DocumentsFragment extends Fragment {
 
     private void initialization() {
         docrecylerview = (RecyclerView) view.findViewById(R.id.docrecylerView);
-        docadpater = new DocumentInfoAdapter(list);
+        docadpater = new DocumentInfoAdapter(list,new CustomItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+              //  long postId = Integer.parseInt(list.get(position));
+
+                Toast.makeText(getContext(), "HELLO", Toast.LENGTH_SHORT).show();
+            }
+        });
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         docrecylerview.setLayoutManager(mLayoutManager);
         DividerItemDecoration   mDividerItemDecoration = new DividerItemDecoration(docrecylerview.getContext(),
