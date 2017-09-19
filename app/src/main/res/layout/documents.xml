@@ -36,7 +36,7 @@
             android:layout_above="@+id/continuebtn"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/colorWhite"
+            android:background="@color/colorextraash"
             android:layout_marginBottom="@dimen/alligntop"
             />
 

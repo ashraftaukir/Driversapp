@@ -13,18 +13,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 
-public class DocumentsFragment extends Fragment {
+public class DocumentsFragment extends Fragment implements View.OnClickListener {
 
     RecyclerView docrecylerview;
 
     DocumentInfoAdapter docadpater;
     View view;
     ArrayList<String> list;
+    Button continuebtn;
 
     @Nullable
     @Override
@@ -34,8 +36,28 @@ public class DocumentsFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("DOCUMENTS");
         addingdocumentsinfo();
         initialization();
+        initListeners();
+        addOnItemTouchListener();
         return view;
 
+    }
+
+    private void initListeners() {
+
+        continuebtn.setOnClickListener(this);
+    }
+
+    private void addOnItemTouchListener() {
+
+        docrecylerview.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
+                new RecyclerItemClickListener.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        gotoDocumentItemFragment(position);
+                    }
+
+                }));
     }
 
     private void addingdocumentsinfo() {
@@ -50,21 +72,9 @@ public class DocumentsFragment extends Fragment {
     }
 
     private void initialization() {
+
+        continuebtn=(Button)view.findViewById(R.id.continuebtn);
         docrecylerview = (RecyclerView) view.findViewById(R.id.docrecylerView);
-
-        docrecylerview.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
-                new RecyclerItemClickListener.OnItemClickListener() {
-
-                    @Override
-                    public void onItemClick(View view, int position) {
-
-                        // Log.d("position", list.get(position) );
-                        gotoDocumentItemFragment(position);
-                    }
-
-
-                }));
-
         docadpater = new DocumentInfoAdapter(list);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         docrecylerview.setLayoutManager(mLayoutManager);
@@ -86,4 +96,25 @@ public class DocumentsFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+
+            case R.id.continuebtn:
+                getFragmentManager().beginTransaction().replace(R.id.homescreen_fragment_container,
+                        new DriveronlineofflineFragment()).addToBackStack(null).commit();
+
+
+                break;
+
+
+            default:
+                break;
+
+
+
+        }
+
+    }
 }
