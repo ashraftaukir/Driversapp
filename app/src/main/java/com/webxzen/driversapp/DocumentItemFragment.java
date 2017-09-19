@@ -18,7 +18,9 @@ public class DocumentItemFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.documentsitem, container, false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("DOCUMENTS");
+
+        String value = getArguments().getString("adapterValue");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(value);
        // initialization();
 
         return view;

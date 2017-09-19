@@ -9,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,17 +51,24 @@ public class DocumentsFragment extends Fragment {
 
     private void initialization() {
         docrecylerview = (RecyclerView) view.findViewById(R.id.docrecylerView);
-        docadpater = new DocumentInfoAdapter(list,new CustomItemClickListener() {
-            @Override
-            public void onItemClick(View v, int position) {
-              //  long postId = Integer.parseInt(list.get(position));
-              gotoDocumentItemFragment();
-               // Toast.makeText(getContext(),String.valueOf(position) , Toast.LENGTH_SHORT).show();
-            }
-        });
+
+        docrecylerview.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
+                new RecyclerItemClickListener.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(View view, int position) {
+
+                        // Log.d("position", list.get(position) );
+                        gotoDocumentItemFragment(position);
+                    }
+
+
+                }));
+
+        docadpater = new DocumentInfoAdapter(list);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         docrecylerview.setLayoutManager(mLayoutManager);
-        DividerItemDecoration   mDividerItemDecoration = new DividerItemDecoration(docrecylerview.getContext(),
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(docrecylerview.getContext(),
                 mLayoutManager.getOrientation());
         docrecylerview.addItemDecoration(mDividerItemDecoration);
         docrecylerview.setAdapter(docadpater);
@@ -68,8 +76,12 @@ public class DocumentsFragment extends Fragment {
 
     }
 
-    private void gotoDocumentItemFragment() {
-        getFragmentManager().beginTransaction().replace(R.id.homescreen_fragment_container, new DocumentItemFragment()).addToBackStack(null).commit();
+    private void gotoDocumentItemFragment(int position) {
+        DocumentItemFragment documentitemfragment = new DocumentItemFragment();
+        Bundle args = new Bundle();
+        args.putString("adapterValue", list.get(position));
+        documentitemfragment.setArguments(args);
+        getFragmentManager().beginTransaction().replace(R.id.homescreen_fragment_container, documentitemfragment).addToBackStack(null).commit();
 
     }
 
