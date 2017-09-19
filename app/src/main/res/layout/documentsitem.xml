@@ -2,51 +2,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorash"
     android:orientation="vertical">
-
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/documents"
-            android:layout_width="match_parent"
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/margin10dp"
-            android:text="@string/documents"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/margin20sp"
-            android:textStyle="normal" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/alligntop"
+            android:gravity="center"
+            android:text="@string/info"
+            android:textSize="@dimen/margin25sp" />
 
-        <android.support.v7.widget.RecyclerView
-
-            android:id="@+id/docrecylerView"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/documents"
-            android:background="@color/colorWhite">
-
-
-        </android.support.v7.widget.RecyclerView>
+            android:layout_below="@+id/info"
+            android:layout_marginLeft="@dimen/alligntop"
+            android:layout_marginTop="@dimen/alligntop"
+            android:gravity="left"
+            android:text="@string/docinfo"
+            android:textSize="@dimen/margin20sp" />
 
         <View
             android:id="@+id/viewline"
-            android:layout_above="@+id/continuebtn"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/colorWhite"
+            android:layout_above="@+id/continuebtn"
             android:layout_marginBottom="@dimen/alligntop"
-            />
+            android:background="@color/colorash" />
 
         <Button
             android:id="@+id/continuebtn"
             style="@style/App_ButtonStyle"
-            android:text="@string/continuebtn"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
-            />
+            android:text="@string/takephotobtn" />
 
     </RelativeLayout>
 

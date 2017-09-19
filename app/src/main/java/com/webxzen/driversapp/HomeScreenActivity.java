@@ -30,14 +30,14 @@ public class HomeScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.homescreenactivity);
-        fragmentcontainer = (FrameLayout) findViewById(R.id.fragment_container);
+        fragmentcontainer = (FrameLayout) findViewById(R.id.homescreen_fragment_container);
         fragmenttransition();
 
     }
 
     private void fragmenttransition() {
 
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new DocumentsFragment()).addToBackStack(null).commit();
+        getFragmentManager().beginTransaction().replace(R.id.homescreen_fragment_container, new DocumentsFragment()).addToBackStack(null).commit();
 
 
     }

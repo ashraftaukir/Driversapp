@@ -54,8 +54,8 @@ public class DocumentsFragment extends Fragment {
             @Override
             public void onItemClick(View v, int position) {
               //  long postId = Integer.parseInt(list.get(position));
-
-                Toast.makeText(getContext(), "HELLO", Toast.LENGTH_SHORT).show();
+              gotoDocumentItemFragment();
+               // Toast.makeText(getContext(),String.valueOf(position) , Toast.LENGTH_SHORT).show();
             }
         });
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -65,6 +65,11 @@ public class DocumentsFragment extends Fragment {
         docrecylerview.addItemDecoration(mDividerItemDecoration);
         docrecylerview.setAdapter(docadpater);
 
+
+    }
+
+    private void gotoDocumentItemFragment() {
+        getFragmentManager().beginTransaction().replace(R.id.homescreen_fragment_container, new DocumentItemFragment()).addToBackStack(null).commit();
 
     }
 

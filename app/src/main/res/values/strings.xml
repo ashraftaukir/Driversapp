@@ -19,4 +19,9 @@
     <string name="google_map_api_key">AIzaSyDv0IZ4oh8MDVd62n-_KtDxBnEXeV4k2xg</string>
     <string name="documents">Documents</string>
     <string name="continuebtn">CONTINUE</string>
+    <string name="takephotobtn">TAKE PHOTO</string>
+    <string name="info">Take a photo of your Document</string>
+    <string name="docinfo">Ensure all information is readable and not blurry.Make sure
+        that all corners of the document are visible.Your document may not be accepted
+        if it cannot be read properly or all four corners are not visible.</string>
 </resources>

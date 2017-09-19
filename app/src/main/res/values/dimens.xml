@@ -10,4 +10,6 @@
     <dimen name="margin15dp">15dp</dimen>
     <dimen name="margin20sp">20sp</dimen>
     <dimen name="margin15sp">15sp</dimen>
+    <dimen name="margin30sp">30sp</dimen>
+    <dimen name="margin25sp">25sp</dimen>
 </resources>
