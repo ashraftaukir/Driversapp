@@ -26,10 +26,23 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/info"
             android:layout_marginLeft="@dimen/alligntop"
+            android:layout_marginRight="@dimen/alligntop"
             android:layout_marginTop="@dimen/alligntop"
             android:gravity="left"
             android:text="@string/docinfo"
             android:textSize="@dimen/margin15sp" />
+
+        <ImageView
+            android:id="@+id/imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/viewline"
+            android:background="@mipmap/ic_launcher"
+
+            android:layout_marginBottom="150dp"
+            android:layout_centerHorizontal="true"
+            />
+
 
         <View
             android:id="@+id/viewline"
