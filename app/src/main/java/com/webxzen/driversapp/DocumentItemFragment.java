@@ -28,7 +28,7 @@ import java.io.IOException;
 
 public class DocumentItemFragment extends Fragment implements View.OnClickListener {
 
-    Button continuebuttton;
+    Button takephotobutton;
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     View view;
     private String userChoosenTask;
@@ -49,9 +49,9 @@ public class DocumentItemFragment extends Fragment implements View.OnClickListen
         switch (requestCode) {
             case Utility.MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if(userChoosenTask.equals("Take Photo"))
+                    if(userChoosenTask.equals("Camera"))
                         cameraIntent();
-                    else if(userChoosenTask.equals("Choose from gallery"))
+                    else if(userChoosenTask.equals("Gallery"))
                         galleryIntent();
                 } else {
                     //code for deny
@@ -60,14 +60,14 @@ public class DocumentItemFragment extends Fragment implements View.OnClickListen
         }
     }
     private void initListeners() {
-        continuebuttton.setOnClickListener(this);
+        takephotobutton.setOnClickListener(this);
 
     }
 
     private void initialization() {
 
         ivImage=(ImageView)view.findViewById(R.id.imageview);
-        continuebuttton = (Button) view.findViewById(R.id.continuebtn);
+        takephotobutton = (Button) view.findViewById(R.id.takephotobtn);
 
     }
 
@@ -124,7 +124,7 @@ public class DocumentItemFragment extends Fragment implements View.OnClickListen
 
 
     private void selectImage() {
-        final CharSequence[] items = { "Take Photo", "Choose from Library",
+        final CharSequence[] items = { "Camera", "Gallery",
                 "Cancel" };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -134,13 +134,13 @@ public class DocumentItemFragment extends Fragment implements View.OnClickListen
             public void onClick(DialogInterface dialog, int item) {
                 boolean result=Utility.checkPermission(getContext());
 
-                if (items[item].equals("Take Photo")) {
-                    userChoosenTask ="Take Photo";
+                if (items[item].equals("Camera")) {
+                    userChoosenTask ="Camera";
                     if(result)
                         cameraIntent();
 
-                } else if (items[item].equals("Choose from Library")) {
-                    userChoosenTask ="Choose from Library";
+                } else if (items[item].equals("Gallery")) {
+                    userChoosenTask ="Gallery";
                     if(result)
                         galleryIntent();
 
@@ -173,11 +173,8 @@ public class DocumentItemFragment extends Fragment implements View.OnClickListen
 
         switch (view.getId()){
 
-            case R.id.continuebtn:
+            case R.id.takephotobtn:
                 selectImage();
-
-
-
             break;
 
             default:
