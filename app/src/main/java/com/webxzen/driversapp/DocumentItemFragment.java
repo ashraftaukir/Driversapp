@@ -177,10 +177,9 @@ public class DocumentItemFragment extends Fragment implements View.OnClickListen
                 selectImage();
             break;
 
+
             default:
                 break;
-
-
         }
 
     }

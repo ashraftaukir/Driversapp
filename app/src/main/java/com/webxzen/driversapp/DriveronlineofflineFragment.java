@@ -11,11 +11,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-
 public class DriveronlineofflineFragment extends Fragment implements View.OnClickListener {
 
     View view;
-    Button goonlinebtn;
+    Button goonlinebtn, myprofilebutton;
     TextView driverstatustv;
 
     @Nullable
@@ -28,12 +27,14 @@ public class DriveronlineofflineFragment extends Fragment implements View.OnClic
     }
 
     private void initListeners() {
-    goonlinebtn.setOnClickListener(this);
+        goonlinebtn.setOnClickListener(this);
+        myprofilebutton.setOnClickListener(this);
     }
 
     private void initialization() {
 
         goonlinebtn = (Button) view.findViewById(R.id.goonlinebtn);
+        myprofilebutton = (Button) view.findViewById(R.id.myprofilebtn);
         goonlinebtn.setBackgroundColor(Color.RED);
         driverstatustv = (TextView) view.findViewById(R.id.driverstatustv);
         driverstatustv.setText("You are now offline");
@@ -41,11 +42,16 @@ public class DriveronlineofflineFragment extends Fragment implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
 
             case R.id.goonlinebtn:
                 goonlinebtn.setBackgroundColor(Color.RED);
                 driverstatustv.setText("You are now online");
+                break;
+            case R.id.myprofilebtn:
+                getFragmentManager().beginTransaction().replace(R.id.homescreen_fragment_container,
+                        new DriverProfileFragment()).addToBackStack(null).commit();
+
                 break;
 
             default:

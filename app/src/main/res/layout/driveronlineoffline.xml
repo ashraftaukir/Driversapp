@@ -27,11 +27,16 @@
             android:layout_below="@+id/goonlinebtn"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/marginleft"
-            android:text="@string/online"
-            android:textSize="@dimen/marginleft"
             android:gravity="center_horizontal"
-            />
+            android:text="@string/online"
+            android:textSize="@dimen/marginleft" />
 
+        <Button
+            android:id="@+id/myprofilebtn"
+            style="@style/App_ButtonStyle"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:text="@string/myProfile" />
 
     </RelativeLayout>
 

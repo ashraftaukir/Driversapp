@@ -25,4 +25,5 @@
         that all corners of the document are visible.Your document may not be accepted
         if it cannot be read properly or all four corners are not visible.</string>
     <string name="online">Testing</string>
+    <string name="myProfile">My Profile</string>
 </resources>
