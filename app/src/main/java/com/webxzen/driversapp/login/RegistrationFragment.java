@@ -99,7 +99,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
         boolean driverfullname = fullname.getText().toString().trim().isEmpty();
         if (driverfullname) {
            // textInputLayoutfullname.setHintTextAppearance(R.style.Active);
-            Toast.makeText(getContext(), "Please select your full name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please select your full name", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -111,7 +111,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
         String driveremailaddress = email.getText().toString();
         if (driveremailaddress.isEmpty() || !isValidEmail(driveremailaddress)) {
            // textInputLayoutemailaddress.setHintTextAppearance(R.style.Active);
-            Toast.makeText(getContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Invalid email address", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -119,10 +119,10 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
     private boolean validatePhoneNumber() {
 
-        boolean driverphonenumber = phonenumber.getText().toString().trim().isEmpty();
-        if (driverphonenumber) {
+        int driverphonenumber = phonenumber.getText().toString().trim().length();
+        if (driverphonenumber<1) {
             //textInputLayoutphonenumber.setHintTextAppearance(R.style.Active);
-            Toast.makeText(getContext(), "Please select your phonenumber", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please select your phonenumber", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -134,7 +134,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
         int driverpassword = password.getText().toString().length();
         if (driverpassword < 4) {
            // textInputLayoutpassword.setHintTextAppearance(R.style.Active);
-            Toast.makeText(getContext(), "Atleast 4 character", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Atleast 4 character", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
