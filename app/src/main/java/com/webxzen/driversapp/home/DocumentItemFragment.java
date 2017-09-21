@@ -1,4 +1,4 @@
-package com.webxzen.driversapp;
+package com.webxzen.driversapp.home;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,6 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.webxzen.driversapp.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

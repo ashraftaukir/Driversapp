@@ -1,9 +1,5 @@
-package com.webxzen.driversapp;
+package com.webxzen.driversapp.home;
 
-import android.annotation.TargetApi;
-import android.app.ActionBar;
-import android.location.Location;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,13 +7,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.FrameLayout;
 
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.webxzen.driversapp.R;
+import com.webxzen.driversapp.home.DocumentsFragment;
 
 
 public class HomeScreenActivity extends AppCompatActivity {

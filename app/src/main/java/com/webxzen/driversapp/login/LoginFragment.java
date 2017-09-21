@@ -1,4 +1,4 @@
-package com.webxzen.driversapp;
+package com.webxzen.driversapp.login;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -16,6 +16,8 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.webxzen.driversapp.home.HomeScreenActivity;
+import com.webxzen.driversapp.R;
 
 
 import java.util.Arrays;

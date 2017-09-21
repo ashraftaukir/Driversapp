@@ -1,4 +1,4 @@
-package com.webxzen.driversapp;
+package com.webxzen.driversapp.home;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.webxzen.driversapp.R;
 
 
 public class DriverProfileFragment extends Fragment {

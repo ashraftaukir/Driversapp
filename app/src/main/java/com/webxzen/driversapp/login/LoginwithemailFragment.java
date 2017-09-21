@@ -1,4 +1,4 @@
-package com.webxzen.driversapp;
+package com.webxzen.driversapp.login;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.webxzen.driversapp.home.HomeScreenActivity;
+import com.webxzen.driversapp.R;
 
 
 public class LoginwithemailFragment extends Fragment implements View.OnClickListener {

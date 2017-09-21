@@ -24,7 +24,7 @@
             android:value="@string/google_map_api_key" />
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomeScreenActivity"
+            android:name=".home.HomeScreenActivity"
             android:theme="@style/AppThemesecond" />
 
     </application>

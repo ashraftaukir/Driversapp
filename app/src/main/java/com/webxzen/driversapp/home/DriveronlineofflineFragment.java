@@ -1,4 +1,4 @@
-package com.webxzen.driversapp;
+package com.webxzen.driversapp.home;
 
 import android.app.Fragment;
 import android.graphics.Color;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.webxzen.driversapp.R;
 
 
 public class DriveronlineofflineFragment extends Fragment implements View.OnClickListener {

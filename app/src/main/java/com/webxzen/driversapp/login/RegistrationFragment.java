@@ -1,9 +1,7 @@
-package com.webxzen.driversapp;
+package com.webxzen.driversapp.login;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -13,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.webxzen.driversapp.home.HomeScreenActivity;
+import com.webxzen.driversapp.R;
 
 
 public class RegistrationFragment extends Fragment implements View.OnClickListener {
