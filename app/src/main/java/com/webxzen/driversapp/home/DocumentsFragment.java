@@ -32,7 +32,7 @@ public class DocumentsFragment extends Fragment implements View.OnClickListener 
 
         view = inflater.inflate(R.layout.documents, container, false);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("DOCUMENTS");
-        addingdocumentsinfo();
+        addingDocumentsinfo();
         initialization();
         initListeners();
         addOnItemTouchListener();
@@ -58,7 +58,7 @@ public class DocumentsFragment extends Fragment implements View.OnClickListener 
                 }));
     }
 
-    private void addingdocumentsinfo() {
+    private void addingDocumentsinfo() {
 
         list = new ArrayList<String>();
         list.add("Driver's License");

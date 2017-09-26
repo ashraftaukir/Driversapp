@@ -1,6 +1,5 @@
 package com.webxzen.driversapp.login;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,19 +15,25 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.webxzen.driversapp.api.AuthAPI;
+import com.webxzen.driversapp.api.RetrofitService;
 import com.webxzen.driversapp.home.HomeScreenActivity;
 import com.webxzen.driversapp.R;
+import com.webxzen.driversapp.base.BaseFragment;
+import com.webxzen.driversapp.util.Appinfo;
 
 
 import java.util.Arrays;
 
 
-public class LoginFragment extends Fragment implements View.OnClickListener {
+public class LoginFragment extends BaseFragment implements View.OnClickListener {
 
 
     Button loginwithfbbtn, loginwitheamilbtn;
     TextView registrationtv;
     CallbackManager callbackManager;
+    private AuthAPI authAPI;
+
 
 
     View view;
@@ -70,6 +75,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        authAPI = RetrofitService.createService(AuthAPI.class, getString(R.string.api_server_url),
+                false);
+
+    }
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
@@ -93,7 +105,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.loginwithemail:
-                gotologinwithEmailPage();
+                gotoLoginwithEmailPage();
                 break;
 
             case R.id.loginwithfb:
@@ -101,7 +113,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.register:
-                gotoregisterPage();
+                gotoRegisterPage();
                 break;
 
             default:
@@ -109,13 +121,16 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private void gotoregisterPage() {
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new RegistrationFragment()).addToBackStack(null).commit();
+    private void gotoRegisterPage() {
 
+        replaceFragment(new RegistrationFragment(),
+                Appinfo.REGISTER_FRAGMENT,Appinfo.LOGIN_FRAGMENT,R.id.fragment_container);
     }
 
-    private void gotologinwithEmailPage() {
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginwithemailFragment()).addToBackStack(null).commit();
+    private void gotoLoginwithEmailPage() {
+        replaceFragment(new LoginwithemailFragment(),
+                Appinfo.LOGIN_WITH_EMAIL_FRAGMENT,Appinfo.LOGIN_FRAGMENT,R.id.fragment_container);
+
 
     }
 

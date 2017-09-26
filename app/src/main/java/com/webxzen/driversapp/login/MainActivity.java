@@ -1,14 +1,15 @@
 package com.webxzen.driversapp.login;
 
-import android.app.Fragment;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.widget.FrameLayout;
 
 import com.webxzen.driversapp.R;
+import com.webxzen.driversapp.base.BaseActivity;
+import com.webxzen.driversapp.util.Appinfo;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     FrameLayout fragmentcontainer;
 
@@ -17,30 +18,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmentcontainer = (FrameLayout) findViewById(R.id.fragment_container);
-        fragmenttransition();
+        initFragment(new LoginFragment(), Appinfo.LOGIN_FRAGMENT,fragmentcontainer.getId());
 
-    }
-
-    private void fragmenttransition() {
-
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginFragment()).addToBackStack(null).commit();
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() == 0) {
-            super.onBackPressed();
-            //  finish();
-        } else {
-            getFragmentManager().popBackStack();
-        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Fragment fragment = (LoginFragment) getFragmentManager().findFragmentById(fragmentcontainer.getId());
+        Fragment fragment = (LoginFragment) getSupportFragmentManager().findFragmentById(fragmentcontainer.getId());
         fragment.onActivityResult(requestCode, resultCode, data);
 
 
