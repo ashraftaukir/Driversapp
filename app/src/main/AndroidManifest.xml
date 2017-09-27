@@ -24,13 +24,16 @@
             android:value="@string/google_map_api_key" />
 
 
-        <activity android:name=".login.MainActivity">
+        <activity android:name=".login.LoginActivity" />
+
+        <activity android:name=".login.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
         <activity
             android:name=".home.HomeScreenActivity"
             android:theme="@style/AppThemesecond" />

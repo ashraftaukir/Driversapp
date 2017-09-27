@@ -9,7 +9,7 @@ import com.webxzen.driversapp.R;
 import com.webxzen.driversapp.base.BaseActivity;
 import com.webxzen.driversapp.util.Appinfo;
 
-public class MainActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
 
     FrameLayout fragmentcontainer;
 
