@@ -27,13 +27,13 @@ public class DriverProfileFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.driverprofile, container, false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("DRIVER PROFILE");
+        String tittle = "DRIVER PROFILE";
+        actionbarSetup(tittle);
         initialization();
         return view;
     }
 
     private void initialization() {
-       // driverProfileRecylerview = (RecyclerView) view.findViewById(R.id.driverProfileRecylerview);
         RatingBar ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
         LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
         stars.getDrawable(2).setColorFilter(getResources().getColor(R.color.colorBlack),

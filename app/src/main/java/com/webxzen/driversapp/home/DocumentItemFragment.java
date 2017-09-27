@@ -40,8 +40,8 @@ public class DocumentItemFragment extends BaseFragment implements View.OnClickLi
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.documentsitem, container, false);
 
-        String value = getArguments().getString("adapterValue");
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(value);
+        String tittle = getArguments().getString("adapterValue");
+        actionbarSetup(tittle);
         initialization();
         initListeners();
         return view;

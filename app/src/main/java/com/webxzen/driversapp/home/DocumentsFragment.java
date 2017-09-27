@@ -34,7 +34,8 @@ public class DocumentsFragment extends BaseFragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.documents, container, false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("DOCUMENTS");
+        String tittle = "DOCUMENTS";
+        actionbarSetup(tittle);
         addingDocumentsinfo();
         initialization();
         initListeners();
@@ -90,7 +91,7 @@ public class DocumentsFragment extends BaseFragment implements View.OnClickListe
     private void gotoDocumentItemFragment(int position) {
         DocumentItemFragment documentitemfragment = new DocumentItemFragment();
         Bundle args = new Bundle();
-        args.putString("adapterValue", list.get(position));
+        args.putString(getString(R.string.value), list.get(position));
         documentitemfragment.setArguments(args);
         replaceFragment(documentitemfragment, Appinfo.DOCUMENT_ITEM_FRAGMENT,
                 Appinfo.DOCUMENTS_FRAGMENT, R.id.homescreen_fragment_container);

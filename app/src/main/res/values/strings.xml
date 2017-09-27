@@ -82,6 +82,7 @@
     <string name="totalearnings">ToatlEarnings</string>
     <string name="you_r_now">You are now </string>
     <string name="goto_Online">Go to online</string>
+    <string name="value">adapterValue</string>
 
 
 </resources>
