@@ -1,6 +1,5 @@
 package com.webxzen.driversapp.home;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,13 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.support.v4.app.Fragment;
+
 
 import com.webxzen.driversapp.R;
+import com.webxzen.driversapp.base.BaseFragment;
+import com.webxzen.driversapp.util.Appinfo;
 
 import java.util.ArrayList;
 
 
-public class DocumentsFragment extends Fragment implements View.OnClickListener {
+public class DocumentsFragment extends BaseFragment implements View.OnClickListener {
 
     RecyclerView docrecylerview;
 
@@ -71,7 +74,7 @@ public class DocumentsFragment extends Fragment implements View.OnClickListener 
 
     private void initialization() {
 
-        continuebtn=(Button)view.findViewById(R.id.continuebtn);
+        continuebtn = (Button) view.findViewById(R.id.continuebtn);
         docrecylerview = (RecyclerView) view.findViewById(R.id.docrecylerView);
         docadpater = new DocumentInfoAdapter(list);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -89,27 +92,24 @@ public class DocumentsFragment extends Fragment implements View.OnClickListener 
         Bundle args = new Bundle();
         args.putString("adapterValue", list.get(position));
         documentitemfragment.setArguments(args);
-        getFragmentManager().beginTransaction().replace(R.id.homescreen_fragment_container, documentitemfragment).addToBackStack(null).commit();
-
+        replaceFragment(documentitemfragment, Appinfo.DOCUMENT_ITEM_FRAGMENT,
+                Appinfo.DOCUMENTS_FRAGMENT, R.id.homescreen_fragment_container);
     }
 
 
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()){
+        switch (view.getId()) {
 
             case R.id.continuebtn:
-                getFragmentManager().beginTransaction().replace(R.id.homescreen_fragment_container,
-                        new DriveronlineofflineFragment()).addToBackStack(null).commit();
-
-
+                replaceFragment(new DriverOnlineOfflineFragment(), Appinfo.DRIVER_ONLINE_OFFLINE_FRAGMENT
+                        , Appinfo.DOCUMENTS_FRAGMENT, R.id.homescreen_fragment_container);
                 break;
 
 
             default:
                 break;
-
 
 
         }

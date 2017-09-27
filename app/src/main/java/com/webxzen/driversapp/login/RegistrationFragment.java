@@ -1,10 +1,8 @@
 package com.webxzen.driversapp.login;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import android.widget.Toast;
 import com.webxzen.driversapp.api.AuthAPI;
 import com.webxzen.driversapp.api.RetrofitService;
 import com.webxzen.driversapp.base.BaseFragment;
-import com.webxzen.driversapp.home.HomeScreenActivity;
 import com.webxzen.driversapp.R;
 import com.webxzen.driversapp.model.AuthModel;
 import com.webxzen.driversapp.util.Appinfo;
@@ -160,7 +157,7 @@ public class RegistrationFragment extends BaseFragment implements View.OnClickLi
 
     private void gotoLoginFragment() {
 
-        replaceFragment(new LoginwithemailFragment(),
+        replaceFragment(new LoginWithEmailFragment(),
                 Appinfo.REGISTER_FRAGMENT,
                 Appinfo.LOGIN_WITH_EMAIL_FRAGMENT, R.id.fragment_container
 
@@ -217,7 +214,7 @@ public class RegistrationFragment extends BaseFragment implements View.OnClickLi
 //    private void gotologinPage() {
 //
 //        getFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                new LoginwithemailFragment()).addToBackStack(null).commit();
+//                new LoginWithEmailFragment()).addToBackStack(null).commit();
 //    }
 
 

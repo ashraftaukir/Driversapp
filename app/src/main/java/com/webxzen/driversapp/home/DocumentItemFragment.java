@@ -2,7 +2,6 @@ package com.webxzen.driversapp.home;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -20,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.webxzen.driversapp.R;
+import com.webxzen.driversapp.base.BaseFragment;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -28,7 +28,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 
-public class DocumentItemFragment extends Fragment implements View.OnClickListener {
+public class DocumentItemFragment extends BaseFragment implements View.OnClickListener {
 
     Button takephotobutton;
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;

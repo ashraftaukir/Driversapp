@@ -27,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class LoginwithemailFragment extends BaseFragment implements View.OnClickListener {
+public class LoginWithEmailFragment extends BaseFragment implements View.OnClickListener {
 
 
     View view;
@@ -158,7 +158,7 @@ public class LoginwithemailFragment extends BaseFragment implements View.OnClick
 
     private void gotoForgotpasswordPage() {
 
-        replaceFragment(new ForgotpasswordFragment(), Appinfo.FORGOTPASSWORD_FRAGMENT,Appinfo.LOGIN_WITH_EMAIL_FRAGMENT,R.id.fragment_container);
+        replaceFragment(new ForgotPasswordFragment(), Appinfo.FORGOTPASSWORD_FRAGMENT,Appinfo.LOGIN_WITH_EMAIL_FRAGMENT,R.id.fragment_container);
     }
 
     public  static boolean isValidEmail(CharSequence target) {

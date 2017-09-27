@@ -14,7 +14,7 @@ import com.webxzen.driversapp.R;
 import com.webxzen.driversapp.base.BaseFragment;
 
 
-public class ForgotpasswordFragment extends BaseFragment implements View.OnClickListener {
+public class ForgotPasswordFragment extends BaseFragment implements View.OnClickListener {
 
     View view;
     EditText emailorphonenumber;

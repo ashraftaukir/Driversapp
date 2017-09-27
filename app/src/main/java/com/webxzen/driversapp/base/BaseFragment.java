@@ -19,7 +19,7 @@ import com.webxzen.driversapp.util.DialogUtil;
 import com.webxzen.driversapp.util.PreferenceHelper;
 
 
-public class BaseFragment extends android.support.v4.app.Fragment {
+public class BaseFragment extends Fragment {
 
     public DialogUtil dialogUtil;
     public LoginModel loginModel;
@@ -102,6 +102,7 @@ public class BaseFragment extends android.support.v4.app.Fragment {
 
     public void replaceFragment(Fragment fragment, String id, String oldId, int resId) {
         getFragmentManager()
+
                 .beginTransaction()
                 .replace(resId, fragment, id)
                 .addToBackStack(oldId)

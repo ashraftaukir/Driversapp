@@ -1,23 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:src="@drawable/profile"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#FF000000"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
-        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
 
+        <RelativeLayout
+            android:id="@+id/ratininfoRelativelayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin"
+                android:src="@drawable/profile"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/emailaddressvalue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/alligntop"
+                android:text="@string/emailvalue" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/emailaddressvalue"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="3.5"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:stepSize="0.1" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/descriptionRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratininfoRelativelayout">
+
+            <LinearLayout
+                android:id="@+id/drivernaminginfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:gravity="center"
+                    android:text="@string/name_tv"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/margin20sp"
+                    android:textStyle="bold" />
 
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/Right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/driver_name_tv"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/margin20sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/driverDescription_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/drivernaminginfo"
+                android:layout_marginLeft="@dimen/alligntop"
+                android:layout_marginRight="@dimen/alligntop"
+                android:layout_marginTop="@dimen/margin10dp"
+                android:text="@string/driverinfo_tv"
+                android:textSize="@dimen/alligntop" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/descriptionRelativeLayout"
+            android:layout_marginTop="@dimen/alligntop">
+
+            <TextView
+                android:id="@+id/earnings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/alligntop"
+                android:text="@string/earnings"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/alligntop" />
+            <TextView
+                android:id="@+id/lastweek"
+                android:layout_below="@+id/earnings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/alligntop"
+                android:layout_marginTop="@dimen/alligntop"
+                android:text="@string/lastweek"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/alligntop" />
+            <TextView
+                android:id="@+id/lastweek2"
+                android:layout_below="@+id/lastweek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/alligntop"
+                android:layout_marginTop="@dimen/alligntop"
+                android:text="@string/lastmonth"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/alligntop" />
+            <TextView
+                android:id="@+id/lastweek3"
+                android:layout_below="@+id/lastweek2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/alligntop"
+                android:layout_marginTop="@dimen/alligntop"
+                android:text="@string/lastyear"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/alligntop" />
+            <TextView
+                android:id="@+id/lastweek4"
+                android:layout_below="@+id/lastweek3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/alligntop"
+                android:layout_marginTop="@dimen/alligntop"
+                android:text="@string/lastweek"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/alligntop" />
+            <TextView
+                android:id="@+id/lastweek5"
+                android:layout_below="@+id/lastweek4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/alligntop"
+                android:layout_marginTop="@dimen/alligntop"
+                android:text="@string/totalearnings"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/alligntop" />
+            <TextView
+                android:id="@+id/lastweek6"
+                android:layout_below="@+id/lastweek5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/alligntop"
+                android:layout_marginTop="@dimen/alligntop"
+                android:text="@string/lastweek"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/alligntop" />
+            <TextView
+                android:id="@+id/lastweek7"
+                android:layout_below="@+id/lastweek6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/alligntop"
+                android:layout_marginTop="@dimen/alligntop"
+                android:text="@string/lastyear"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/alligntop" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>

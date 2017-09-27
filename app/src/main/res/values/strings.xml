@@ -22,7 +22,8 @@
     <string name="docinfo">Ensure all information is readable and not blurry.Make sure
         that all corners of the document are visible.Your document may not be accepted
         if it cannot be read properly or all four corners are not visible.</string>
-    <string name="online">Testing</string>
+    <string name="offline">Offline</string>
+    <string name="online">Online</string>
     <string name="myProfile">My Profile</string>
 
     <!--Dialog-->
@@ -67,7 +68,20 @@
 
     <string name="action_settings">Settings</string>
     <string name="imageViewdescription">ImageView</string>
-
+    <string name="emailvalue">ashraftaukir@gmail.com</string>
+    <string name="name_tv">Name:</string>
+    <string name="driver_name_tv">Ashraf Taukir</string>
+    <string name="driverinfo_tv">Araba drivers offer passengers a safer way to get home after a late night out,
+        a hassle-free way to get to the airport, and in some markets, even deliver users’ orders from restaurants or other local businesses.
+        When you sign up as an Araba driver, you’ll be an independent contractor and will get paid weekly.
+        Araba has played a large part in ushering in the on-demand economy, which is powered by contract workers</string>
+    <string name="earnings">Earnings</string>
+    <string name="lastweek">LastWeek</string>
+    <string name="lastmonth">LastMonth</string>
+    <string name="lastyear">LastYear</string>
+    <string name="totalearnings">ToatlEarnings</string>
+    <string name="you_r_now">You are now </string>
+    <string name="goto_Online">Go to online</string>
 
 
 </resources>

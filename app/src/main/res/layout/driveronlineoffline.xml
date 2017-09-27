@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,27 +9,51 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/goonlinebtn"
+
+        <com.ebanx.swipebtn.SwipeButton
+            android:id="@+id/goOnlineBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:button_background="@drawable/shape_button"
+            app:button_bottom_padding="18dp"
+            app:button_left_padding="18dp"
+            app:button_right_padding="18dp"
+            app:button_top_padding="18dp"
+            app:inner_text="@string/goto_Online"
+            app:inner_text_background="@drawable/shape_rounded"
+            app:inner_text_bottom_padding="18dp"
+            app:inner_text_color="@android:color/white"
+            app:inner_text_size="16sp"
+            app:inner_text_top_padding="18dp"
+            app:button_image_disabled="@drawable/ic_lock_open_black_24dp"
+            app:button_image_enabled="@drawable/ic_lock_outline_black_24dp"
+
+            />
+
+        <TextView
+            android:layout_marginTop="@dimen/margin20dp"
+            android:id="@+id/driverOnline_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/goOnlineBtn"
+            android:text="@string/you_r_now"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/marginleft"
-            android:paddingBottom="30dp"
-            android:paddingLeft="80dp"
-            android:paddingRight="80dp"
-            android:paddingTop="30dp" />
+            android:textSize="@dimen/margin25sp"
+            />
 
         <TextView
 
             android:id="@+id/driverstatustv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/goonlinebtn"
+            android:layout_below="@+id/driverOnline_tv"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/marginleft"
+            android:layout_marginTop="@dimen/margin"
             android:gravity="center_horizontal"
-            android:text="@string/online"
+            android:text="@string/offline"
             android:textSize="@dimen/marginleft" />
 
         <Button
@@ -37,6 +62,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
             android:text="@string/myProfile" />
+
+
 
     </RelativeLayout>
 

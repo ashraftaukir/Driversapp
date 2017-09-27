@@ -8,10 +8,11 @@ import android.view.MenuInflater;
 import android.widget.FrameLayout;
 
 import com.webxzen.driversapp.R;
-import com.webxzen.driversapp.home.DocumentsFragment;
+import com.webxzen.driversapp.base.BaseActivity;
+import com.webxzen.driversapp.util.Appinfo;
 
 
-public class HomeScreenActivity extends AppCompatActivity {
+public class HomeScreenActivity extends BaseActivity {
 
 
     FrameLayout fragmentcontainer;
@@ -22,15 +23,13 @@ public class HomeScreenActivity extends AppCompatActivity {
 
         setContentView(R.layout.homescreenactivity);
         fragmentcontainer = (FrameLayout) findViewById(R.id.homescreen_fragment_container);
-        fragmenttransition();
+        fragmentTransition();
 
     }
 
-    private void fragmenttransition() {
+    private void fragmentTransition() {
 
-        getFragmentManager().beginTransaction().replace(R.id.homescreen_fragment_container, new DocumentsFragment()).addToBackStack(null).commit();
-
-
+        initFragment(new DocumentsFragment(), Appinfo.DOCUMENTS_FRAGMENT, R.id.homescreen_fragment_container);
     }
 
     @Override

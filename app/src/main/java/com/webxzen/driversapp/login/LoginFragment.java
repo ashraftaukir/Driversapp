@@ -128,7 +128,7 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
     }
 
     private void gotoLoginwithEmailPage() {
-        replaceFragment(new LoginwithemailFragment(),
+        replaceFragment(new LoginWithEmailFragment(),
                 Appinfo.LOGIN_WITH_EMAIL_FRAGMENT,Appinfo.LOGIN_FRAGMENT,R.id.fragment_container);
 
 
