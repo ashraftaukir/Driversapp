@@ -2,14 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/maincolor"
+    >
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/loginpage"
-        android:src="@color/colorBlack" />
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:contentDescription="@string/loginpage"-->
+        <!--android:src="@color/colorBlack" />-->
 
 
     <RelativeLayout
@@ -54,7 +56,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/alligntop"
             android:text="@string/register_now"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/logofontcolor"
             android:textSize="@dimen/forgotpasswordtextsize" />
 
 

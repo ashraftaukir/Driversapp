@@ -10,4 +10,9 @@
     <color name="colorextraash">#C0C0C0</color>
     <color name="colorRed">#FF0000</color>
     <color name="colorTransparentBlack">#99000000</color>
+    <color name="logofontcolor">#cbe8e4</color>
+    <color name="maincolor">#035448</color>
+    <color name="loginbuttoncolor">#da2028</color>
+    <color name="buttonbordercolor">#99cbe8e4</color>
+
 </resources>

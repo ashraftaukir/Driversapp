@@ -23,13 +23,13 @@ public class SplashScreenActivity extends BaseActivity{
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                starOurApp();
+                startOurApp();
             }
         }, 3000);
 
     }
 
-    private void starOurApp() {
+    private void startOurApp() {
         if (DBHelper.getSavedLogin() != null) {
             startActivity(new Intent(this, HomeScreenActivity.class));
             finish();

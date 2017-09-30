@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorBlack"
+    android:background="@color/maincolor"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -15,8 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/emailaddresset"
-            android:theme="@style/TextLabel"
-            >
+            android:theme="@style/TextLabel">
 
 
             <EditText
@@ -33,15 +31,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:theme="@style/TextLabel"
-            >
+            android:theme="@style/TextLabel">
 
             <EditText
                 android:id="@+id/emailaddressedittext"
                 style="@style/App_EditTextStyle"
                 android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                />
+                android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -49,8 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/emailaddresset"
-            android:theme="@style/TextLabel"
-            >
+            android:theme="@style/TextLabel">
 
             <EditText
                 android:id="@+id/phoneinfoedittext"
