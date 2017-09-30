@@ -1,5 +1,6 @@
 package com.webxzen.driversapp.login;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -11,7 +12,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.webxzen.driversapp.R;
+import com.webxzen.driversapp.api.AuthAPI;
+import com.webxzen.driversapp.api.RetrofitService;
 import com.webxzen.driversapp.base.BaseFragment;
+import com.webxzen.driversapp.model.AuthModel;
+import com.webxzen.driversapp.util.Appinfo;
+import com.webxzen.driversapp.util.Utils;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ForgotPasswordFragment extends BaseFragment implements View.OnClickListener {
@@ -20,6 +30,7 @@ public class ForgotPasswordFragment extends BaseFragment implements View.OnClick
     EditText emailorphonenumber;
     Button sendbtn;
     TextInputLayout textInputLayoutemail;
+    private AuthAPI authAPI;
 
 
     @Nullable
@@ -30,6 +41,14 @@ public class ForgotPasswordFragment extends BaseFragment implements View.OnClick
         initListeners();
 
         return view;
+
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        authAPI = RetrofitService.createService(AuthAPI.class, getString(R.string.api_server_url),
+                false);
 
     }
 
@@ -47,17 +66,15 @@ public class ForgotPasswordFragment extends BaseFragment implements View.OnClick
     }
 
 
-
     private void gotoValidationProcess() {
         String emailorphone = emailorphonenumber.getText().toString();
-        if (isValidEmail(emailorphone) || (emailorphone.length() == 11)) {
+        if (isValidEmail(emailorphone) || (!emailorphone.isEmpty())) {
 
-            Toast.makeText(getContext(), "Sending u message", Toast.LENGTH_SHORT).show();
+            ApiCall(emailorphone);
 
         } else {
-            Toast.makeText(getContext(), "Check your email or phonenumber", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Check your email or phonenumber", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public static boolean isValidEmail(CharSequence target) {
@@ -65,9 +82,63 @@ public class ForgotPasswordFragment extends BaseFragment implements View.OnClick
     }
 
 
+    private void ApiCall(String emailorphone) {
+
+        if (isNetworkAvailable()) {
+
+            dialogUtil.showProgressDialog();
+            String deviceToken = Utils.getDeviceId(getActivity());
+            Call<AuthModel> forgetPassword = authAPI.forgetPassword(emailorphone);
+
+            forgetPassword.enqueue(new Callback<AuthModel>() {
+                @Override
+                public void onResponse(Call<AuthModel> call, Response<AuthModel> response) {
+
+                    if (dialogUtil != null) {
+
+                        dialogUtil.dismissProgress();
+
+                    }
+                    if (response.isSuccessful()) {
+                        if (response.body().success) {
+                            String msg = response.body().message;
+                            dialogUtil.showDialogOk(msg, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    replaceFragment(new LoginWithEmailFragment(),
+                                            Appinfo.LOGIN_WITH_EMAIL_FRAGMENT,
+                                            Appinfo.FORGOTPASSWORD_FRAGMENT, R.id.fragment_container);
+                                }
+                            });
+
+                        }
+                        if (!response.body().success) {
+                            Toast.makeText(getActivity(), response.body().message, Toast.LENGTH_LONG).show();
+
+                        }
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<AuthModel> call, Throwable t) {
+                    if (dialogUtil != null) {
+                        dialogUtil.dismissProgress();
+                    }
+                    Toast.makeText(getActivity(), "Testing error", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+
+            dialogUtil.showDialogOk(getString(R.string.no_internet));
+        }
+
+    }
+
+
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.sendbutton:
                 gotoValidationProcess();
                 break;
@@ -78,4 +149,6 @@ public class ForgotPasswordFragment extends BaseFragment implements View.OnClick
 
         }
     }
+
+
 }

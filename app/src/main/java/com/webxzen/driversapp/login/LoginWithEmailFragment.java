@@ -34,8 +34,8 @@ public class LoginWithEmailFragment extends BaseFragment implements View.OnClick
     View view;
     TextView forgotpass;
     Button applicationlogin;
-    EditText emailaddress,loginpassword;
-    TextInputLayout textInputemailLayout,textInputpasswordLayout;
+    EditText emailaddress, loginpassword;
+    TextInputLayout textInputemailLayout, textInputpasswordLayout;
     private AuthAPI authAPI;
 
     @Nullable
@@ -63,6 +63,7 @@ public class LoginWithEmailFragment extends BaseFragment implements View.OnClick
         textInputpasswordLayout = (TextInputLayout) view.findViewById(R.id.passwordet);
 
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -78,8 +79,8 @@ public class LoginWithEmailFragment extends BaseFragment implements View.OnClick
                 gotoForgotpasswordPage();
                 break;
             case R.id.apploginbtn:
-               gotoValidationProcess();
-               break;
+                gotoValidationProcess();
+                break;
             default:
                 break;
         }
@@ -87,11 +88,11 @@ public class LoginWithEmailFragment extends BaseFragment implements View.OnClick
 
     private void gotoValidationProcess() {
 
-        String email=emailaddress.getText().toString();
-        int password=loginpassword.getText().toString().length();
-        if(isValidEmail(email)&&password>3){
+        String email = emailaddress.getText().toString();
+        int password = loginpassword.getText().toString().length();
+        if (isValidEmail(email) && password > 3) {
             gotohomePage(email);
-        }else{
+        } else {
             Toast.makeText(getContext(), "Incorrect email or password", Toast.LENGTH_SHORT).show();
         }
 
@@ -130,12 +131,19 @@ public class LoginWithEmailFragment extends BaseFragment implements View.OnClick
                             if (response.body().success) {
                                 LoginModel loginModel = response.body().data.login;
                                 if (loginModel != null) {
-                                   if (DBHelper.saveLogin(loginModel)) {
+                                    if (DBHelper.saveLogin(loginModel)) {
                                         startActivity(new Intent(getActivity(), HomeScreenActivity.class));
                                         getActivity().finish();
                                     }
                                 }
                             }
+
+                            if(!response.body().success){
+                                String error_msg=response.body().message;
+                                Toast.makeText(getActivity(),error_msg , Toast.LENGTH_SHORT).show();
+                            }
+
+
 
                         }
                     }
@@ -159,10 +167,10 @@ public class LoginWithEmailFragment extends BaseFragment implements View.OnClick
 
     private void gotoForgotpasswordPage() {
 
-        replaceFragment(new ForgotPasswordFragment(), Appinfo.FORGOTPASSWORD_FRAGMENT,Appinfo.LOGIN_WITH_EMAIL_FRAGMENT,R.id.fragment_container);
+        replaceFragment(new ForgotPasswordFragment(), Appinfo.FORGOTPASSWORD_FRAGMENT, Appinfo.LOGIN_WITH_EMAIL_FRAGMENT, R.id.fragment_container);
     }
 
-    public  static boolean isValidEmail(CharSequence target) {
+    public static boolean isValidEmail(CharSequence target) {
         return target != null && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
 

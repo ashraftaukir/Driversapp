@@ -11,7 +11,7 @@ import com.webxzen.driversapp.home.HomeScreenActivity;
 import com.webxzen.driversapp.util.DBHelper;
 
 
-public class SplashScreenActivity extends BaseActivity{
+public class SplashScreenActivity extends BaseActivity {
 
 
     @Override
@@ -37,7 +37,6 @@ public class SplashScreenActivity extends BaseActivity{
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }
-
 
 
     }

@@ -62,4 +62,12 @@ public interface AuthAPI {
             @Header("X-ACCESS-TOKEN") String token
     );
 
+    @FormUrlEncoded
+    @POST("api/auth/forget")
+    Call<AuthModel> forgetPassword(
+            @Field("emailOrMobile") String emailOrMobile
+
+
+    );
+
 }
