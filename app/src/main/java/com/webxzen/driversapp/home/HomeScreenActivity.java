@@ -1,14 +1,18 @@
 package com.webxzen.driversapp.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.webxzen.driversapp.R;
 import com.webxzen.driversapp.base.BaseActivity;
+import com.webxzen.driversapp.login.SplashScreenActivity;
 import com.webxzen.driversapp.util.Appinfo;
+import com.webxzen.driversapp.util.DBHelper;
 
 
 public class HomeScreenActivity extends BaseActivity {
@@ -38,4 +42,23 @@ public class HomeScreenActivity extends BaseActivity {
         return true;
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.logout:
+                logout();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void logout() {
+        DBHelper.remove(DBHelper.DB_LOGIN);
+        startActivity(new Intent(HomeScreenActivity.this, SplashScreenActivity.class));
+        finishAffinity();
+    }
+
 }
