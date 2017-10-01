@@ -136,13 +136,10 @@ public class LoginWithEmailFragment extends BaseFragment implements View.OnClick
                                         getActivity().finish();
                                     }
                                 }
+                            } else {
+                                String error_msg = response.body().message;
+                                Toast.makeText(getActivity(), error_msg, Toast.LENGTH_SHORT).show();
                             }
-
-                            if(!response.body().success){
-                                String error_msg=response.body().message;
-                                Toast.makeText(getActivity(),error_msg , Toast.LENGTH_SHORT).show();
-                            }
-
 
 
                         }
