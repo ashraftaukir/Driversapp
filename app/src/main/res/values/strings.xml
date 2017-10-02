@@ -86,6 +86,7 @@
     <string name="u_r_signup">YOU\'RE ALL SIGNED UP!</string>
     <string name="landinginfo">Congratulations,you have completed the driver signup process.
     You will be notified shortly,once you are approved.</string>
+    <string name="tryagain">Please try again</string>
 
 
 </resources>

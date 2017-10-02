@@ -146,7 +146,7 @@ public class RegistrationFragment extends BaseFragment implements View.OnClickLi
                     if (dialogUtil != null) {
                         dialogUtil.dismissProgress();
                     }
-                    Toast.makeText(getActivity(), "Testing error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),getString(R.string.tryagain), Toast.LENGTH_SHORT).show();
                 }
             });
         } else {
