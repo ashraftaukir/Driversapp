@@ -2,9 +2,9 @@
 <resources>
     <string name="api_server_url">https://api.arabaworld.com/</string>
     <string name="api_assets">http://cdn.araba.com/assets/</string>
-    <string name="files_server_url">file.araba.com/</string>
+    <string name="files_server_url">http://file.araba.com/</string>
     <string name="web_url">http://araba.com/pages/</string>
 
-    <!--<string name="facebook_app_id">1286798358090922</string>-->
-    <!--<string name="client_secret">363e0c3bc51bdc36ecc2edd9c9eab629</string>-->
+    <string name="facebook_app_id">140934686524516</string>
+    <string name="google_map_api_key">313bffc3597713f1a0ac38f68741625f</string>
 </resources>
