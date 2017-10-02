@@ -32,7 +32,8 @@ public class HomeScreenActivity extends BaseActivity {
 
     private void fragmentTransition() {
 
-        initFragment(new DocumentsFragment(), Appinfo.DOCUMENTS_FRAGMENT, R.id.homescreen_fragment_container);
+       // initFragment(new DocumentsFragment(), Appinfo.DOCUMENTS_FRAGMENT, R.id.homescreen_fragment_container);
+        initFragment(new LandingPageFragment(), Appinfo.DOCUMENTS_FRAGMENT, R.id.homescreen_fragment_container);
     }
 
     @Override
