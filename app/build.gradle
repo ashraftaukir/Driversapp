@@ -18,6 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+
+    }
 }
 
 dependencies {
@@ -48,7 +53,7 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.26.0'
     compile 'com.master.android:permissionhelper:1.1'
     compile 'com.dlazaro66.qrcodereaderview:qrcodereaderview:2.0.2'
-    compile 'com.google.android.gms:play-services:10.2.0'
+    compile 'com.google.android.gms:play-services:11.0.4'
     compile 'me.gujun.android.taggroup:library:1.4@aar'
     compile 'com.github.ronaldsmartin:Material-ViewPagerIndicator:1.0.2'
     compile 'com.thefinestartist:finestwebview:1.2.7'
