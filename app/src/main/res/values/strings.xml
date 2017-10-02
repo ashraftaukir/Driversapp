@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Driversapp</string>
-    <string name="hello">hello araba app!!!!</string>
-    <string name="loginpage">Loginpage</string>
+    <string name="app_name">Araba Driver</string>
+    <string name="hello">Hello araba app!!!!</string>
+    <string name="loginpage">Login page</string>
     <string name="fbtext">Login with facebook</string>
     <string name="emailtext">Login with email</string>
     <string name="registrationmessage">Register here</string>

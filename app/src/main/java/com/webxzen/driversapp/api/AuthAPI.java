@@ -12,12 +12,12 @@ import retrofit2.http.POST;
 public interface AuthAPI {
 
     @FormUrlEncoded
-    @POST("api/auth/signup/rider")
+    @POST("api/auth/signup/driver")
     Call<AuthModel> register(
-            @Field("fullname") String fullname,
+            @Field("full_name") String fullname,
             @Field("email") String email,
             @Field("password") String password,
-            @Field("phone") String platform,
+            @Field("mobile") String platform,
             @Field("device_token") String deviceToken
     );
 
